@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="maratona-jsf-davi:ejb exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/maratona_jsf_davi_ejb_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="maratona-jsf-davi/ejb/EJB" />
+      <element id="javaee-facet-classes" facet="maratona-jsf-davi/ejb/EJB" />
+    </root>
+  </artifact>
+</component>
