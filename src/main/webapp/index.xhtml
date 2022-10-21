@@ -13,7 +13,18 @@
         <h:outputLabel value="#{estudanteRegistro.nome} "/>
         <h:outputLabel value="#{estudanteRegistro.sobrenome}"/>
         <br/>
-        <h:outputLabel value="#{estudanteRegistro.nota1 eq estudanteRegistro.nota2}"/>
+        <h:outputLabel value="#{estudanteRegistro.nota1 eq estudanteRegistro.nota2}"/><br/>
+        <h:outputLabel value="#{estudanteRegistro.nota2 == estudanteRegistro.nota3}"/><br/>
+        <h:outputLabel value="#{estudanteRegistro.nota1 le estudanteRegistro.nota2 or estudanteRegistro.nota1 lt estudanteRegistro.nota3}"/><br/>
+        <h:outputLabel value="#{estudanteRegistro.nota1 eq 0 ? 'ZERO' : 'DIFERENTE DE ZERO'}"/><br/>
+        <h:outputLabel value="#{estudanteRegistro.nota1 = 10.0}"/><br/>
+        <h:outputLabel value="Agora a nota 1 do Estudante é #{estudanteRegistro.nota1} --> PARA QUE ACONTEÇA A MUDANÇA
+        DA NOTA, PRECISAMOS DE UM FORMULÁRIO PARA FAZER O POST DA NOTA"/><br/>
+<!--        PALAVRAS RESERVADAS NO JSF PARA OPERAÇÕES LÓGICAS: -->
+<!--        and, or, not, eq, ne (not equals), lt, gt, le, ge, true, false, null, instanceof, empty, div e mod-->
+
+
+
     </f:view>
 
 </h:body>

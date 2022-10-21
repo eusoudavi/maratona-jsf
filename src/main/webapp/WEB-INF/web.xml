@@ -9,6 +9,12 @@
     <welcome-file>index.xhtml</welcome-file>
   </welcome-file-list>
 
+<!--  AQUI PODEMOS PEDIR PARA NÃO PUBLICAR NO HTML OS COMENTÁRIOS FEITOS NO JSF-->
+  <context-param>
+    <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+    <param-value>true</param-value>
+  </context-param>
+
 
 </web-app>
 
@@ -30,10 +36,7 @@
           <servlet-name>Faces Servlet</servlet-name>
           <url-pattern>*.xhtml</url-pattern>
         </servlet-mapping>
-        <context-param>
-          <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
-          <param-value>true</param-value>
-        </context-param>
+
         <context-param>
           <param-name>javax.faces.SEPARATOR_CHAR</param-name>
           <param-value>-</param-value>
