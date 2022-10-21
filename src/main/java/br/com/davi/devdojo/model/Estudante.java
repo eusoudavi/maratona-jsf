@@ -1,16 +1,22 @@
-package br.com.davi.estudante.bean;
+package br.com.davi.devdojo.model;
 
-import javax.inject.Named;
-import java.io.Serializable;
+import br.com.davi.devdojo.model.enums.Turno;
 
-@Named("estudanteRegistro")     // ALTERANDO O NOME AQUI, DEVEMOS CHAMAR POR ESSE NOME NO JSF.
-public class EstudandeRegistroBean implements Serializable {
-//    CASO NÃO ALTERÁSSEMOS O NOME, CHAMARIAMOS POR estudanteRegistroBean, NO JSF.
+public class Estudante {
     private String nome = "Davi";
     private String sobrenome = "Visintainer";
     private double nota1;
     private double nota2;
     private double nota3 = 10;
+    private Turno turno = Turno.MATUTINO;
+
+    public Turno getTurno() {
+        return turno;
+    }
+
+    public void setTurno(Turno turno) {
+        this.turno = turno;
+    }
 
     public String getNome() {
         return nome;
