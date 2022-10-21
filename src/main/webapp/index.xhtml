@@ -10,8 +10,7 @@
 
 <h:body>
     <p:importEnum type="br.com.davi.devdojo.model.enums.Turno"
-                  var="Turno" allSuffix="ALL_ENUM_VALUES" />
-    Development: \#{JsfProjectStages.Development}
+                  var="Turno" allSuffix="ALL_ENUM_VALUES"/>
 
     <f:view>
         <h:outputLabel value="Hello, world"/> <br/>
@@ -20,14 +19,36 @@
         <br/>
         <h:outputLabel value="#{estudanteRegistro.estudante.nota1 eq estudanteRegistro.estudante.nota2}"/><br/>
         <h:outputLabel value="#{estudanteRegistro.estudante.nota2 == estudanteRegistro.estudante.nota3}"/><br/>
-        <h:outputLabel value="#{estudanteRegistro.estudante.nota1 le estudanteRegistro.estudante.nota2 or estudanteRegistro.estudante.nota1 lt estudanteRegistro.estudante.nota3}"/><br/>
+        <h:outputLabel
+                value="#{estudanteRegistro.estudante.nota1 le estudanteRegistro.estudante.nota2 or estudanteRegistro.estudante.nota1 lt estudanteRegistro.estudante.nota3}"/><br/>
         <h:outputLabel value="#{estudanteRegistro.estudante.nota1 eq 0 ? 'ZERO' : 'DIFERENTE DE ZERO'}"/><br/>
         <h:outputLabel value="#{estudanteRegistro.estudante.nota1 = 10.0}"/><br/>
         <h:outputLabel value="Agora a nota 1 do Estudante é #{estudanteRegistro.estudante.nota1} --> PARA QUE ACONTEÇA A MUDANÇA
         DA NOTA, PRECISAMOS DE UM FORMULÁRIO PARA FAZER O POST DA NOTA"/><br/>
-<!--        PALAVRAS RESERVADAS NO JSF PARA OPERAÇÕES LÓGICAS: -->
-<!--        and, or, not, eq, ne (not equals), lt, gt, le, ge, true, false, null, instanceof, empty, div e mod-->
+        <!--        PALAVRAS RESERVADAS NO JSF PARA OPERAÇÕES LÓGICAS: -->
+        <!--        and, or, not, eq, ne (not equals), lt, gt, le, ge, true, false, null, instanceof, empty, div e mod-->
         <h:outputLabel value="#{estudanteRegistro.estudante.turno eq Turno.MATUTINO}"/><br/>
+
+        <!--        ARRAY       -->
+        <h:outputLabel value="#{estudanteRegistro.nomesArray[0]}
+        #{estudanteRegistro.nomesArray[1]} #{estudanteRegistro.nomesArray[2]}"/><br/>
+        <!--        ITERAÇÃO SOBRE ARRAY    -->
+        <ui:repeat value="#{estudanteRegistro.nomesArray}" var="nome">
+            <h:outputLabel value="#{nome}"/><br/>
+        </ui:repeat>
+        <!--        ITERAÇÃO SOBRE LIST    -->
+        <ui:repeat value="#{estudanteRegistro.nomesList}" var="numeros">
+            <h:outputLabel value="#{numeros}"/><br/>
+        </ui:repeat>
+        <!--        ITERAÇÃO SOBRE SET (NÃO PODEMOS PEGAR APENAS UM ÚNICO VALOR DO SET)    -->
+        <ui:repeat value="#{estudanteRegistro.nomesSet.toArray()}" var="letras">
+            <h:outputLabel value="#{letras}"/><br/>
+        </ui:repeat>
+        <!--        ITERAÇÃO SOBRE MAP    -->
+        <h:outputLabel value="#{estudanteRegistro.nomesMap.get('Davi')}"/><br/>
+        <ui:repeat value="#{estudanteRegistro.nomesMap.entrySet().toArray()}" var="valores">
+            <h:outputLabel value="#{valores.key} - #{valores.value}"/><br/>
+        </ui:repeat>
 
     </f:view>
 
