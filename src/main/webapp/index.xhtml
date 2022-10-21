@@ -50,6 +50,17 @@
             <h:outputLabel value="#{valores.key} - #{valores.value}"/><br/>
         </ui:repeat>
 
+        <br/>
+        <br/>
+
+        #{estudanteRegistro.executar(estudanteRegistro.estudante.nome)}
+        #{estudanteRegistro.executarRetorno(estudanteRegistro.estudante.nome)}
+
+        <h:form>
+            <h:commandButton value="Próxima página"
+                             action="#{estudanteRegistro.irParaIndex2()}"/>
+        </h:form>
+
     </f:view>
 
 </h:body>

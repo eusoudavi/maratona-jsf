@@ -24,6 +24,18 @@ public class EstudandeRegistroBean implements Serializable {
         nomesMap.put("Visintainer", "Último Nome");
     }
 
+    public void executar(String nome){
+        System.out.println("Fazendo uma busca no BD do nome " + nome);
+        System.out.println("Processando os dados");
+        System.out.println("Exibindo os dados");
+    }
+    public String executarRetorno(String nome){
+        return "Quem é o lindão? " + nome;
+    }
+   public String irParaIndex2(){
+//        return "index2";
+        return "index2?faces-redirect=true"; // USAMOS ESSA ESTRUTURA PARA MOSTRAR NO NAVEGADOR O NOVO ENDEREÇO
+    }
 
     public Map<String, String> getNomesMap() {
         return nomesMap;
