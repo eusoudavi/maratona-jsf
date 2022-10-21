@@ -52,16 +52,32 @@
 
         <br/>
         <br/>
-
+        <!-- EXECUTANDO MÉTODOS NO BEAN -->
         #{estudanteRegistro.executar(estudanteRegistro.estudante.nome)}
         #{estudanteRegistro.executarRetorno(estudanteRegistro.estudante.nome)}
-
         <h:form>
             <h:commandButton value="Próxima página"
                              action="#{estudanteRegistro.irParaIndex2()}"/>
+
+            <br/>
+            <br/>
+
+            <h:commandButton value="Avisar o nome" onclick="atencaoNome('#{estudanteRegistro.estudante.nome}')"/>
         </h:form>
+
+        <!-- IMPRIMINDO CSS COM EXPRESSION LANGUAGE -->
+        <ui:repeat value="#{estudanteRegistro.nomesList}"
+                   var="numeros"
+                   varStatus="status">
+            <h:outputLabel value="#{status.index} - #{numeros}" style="color: #{status.index mod 2 == 0 ? 'red' : 'blue'}"/><br/>
+        </ui:repeat>
 
     </f:view>
 
 </h:body>
+<script type="text/javascript">
+    function atencaoNome(nome){
+        alert(nome);
+    }
+</script>
 </html>
