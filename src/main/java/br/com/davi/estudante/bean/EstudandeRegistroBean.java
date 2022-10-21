@@ -3,8 +3,9 @@ package br.com.davi.estudante.bean;
 import javax.inject.Named;
 import java.io.Serializable;
 
-@Named
+@Named("estudanteRegistro")     // ALTERANDO O NOME AQUI, DEVEMOS CHAMAR POR ESSE NOME NO JSF.
 public class EstudandeRegistroBean implements Serializable {
+//    CASO NÃO ALTERÁSSEMOS O NOME, CHAMARIAMOS POR estudanteRegistroBean, NO JSF.
     private String nome = "Davi";
     private String sobrenome = "Visintainer";
     private double nota1;
