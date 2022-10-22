@@ -7,6 +7,9 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
 
 <h:body>
     <p:importEnum type="br.com.davi.devdojo.model.enums.Turno"
@@ -71,6 +74,46 @@
                    varStatus="status">
             <h:outputLabel value="#{status.index} - #{numeros}" style="color: #{status.index mod 2 == 0 ? 'red' : 'blue'}"/><br/>
         </ui:repeat>
+        <br/>
+
+        <h:form id="form">
+            <h:commandButton value="Exibir Notas">
+                <f:ajax listener="#{estudanteRegistro.exibirNotas()}" render="notasGrid"/>
+            </h:commandButton>
+            <h:commandButton value="Esconder Notas">
+                <f:ajax listener="#{estudanteRegistro.esconderNotas()}" render="notasGrid"/>
+            </h:commandButton>
+
+            <br/>
+
+            <h:commandButton value="Exibir Link">
+                <f:ajax listener="#{estudanteRegistro.exibirLink()}" render="pgGroup"/>
+            </h:commandButton>
+            <h:commandButton value="Esconder Link">
+                <f:ajax listener="#{estudanteRegistro.esconderLink()}" render="pgGroup"/>
+            </h:commandButton>
+
+            <br/>
+
+            <h:panelGrid id="notasGrid">
+                <h:outputLabel value="#{estudanteRegistro.estudante.nome}"/><br/>
+                <h:outputLabel value="#{estudanteRegistro.estudante.sobrenome}"/><br/>
+                <h:outputLabel value="#{estudanteRegistro.estudante.turno}"/><br/>
+                <h:outputLabel value="#{estudanteRegistro.estudante.nota1}"
+                               rendered="#{estudanteRegistro.mostrarNotas}"/>
+                <h:outputLabel value="#{estudanteRegistro.estudante.nota2}"
+                               rendered="#{estudanteRegistro.mostrarNotas}"/>
+                <h:outputLabel value="#{estudanteRegistro.estudante.nota3}"
+                               rendered="#{estudanteRegistro.mostrarNotas}"/>
+
+                <h:panelGroup id="pgGroup">
+                    <ui:fragment id="link_google" rendered="#{estudanteRegistro.mostrarLink}">
+                        <a href="www.google.com.br" target="_blank">wwww.google.com.br</a>
+                    </ui:fragment>
+                </h:panelGroup>
+
+            </h:panelGrid>
+        </h:form>
 
     </f:view>
 
