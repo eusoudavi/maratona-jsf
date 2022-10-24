@@ -2,6 +2,8 @@ package br.com.davi.devdojo.bean.estudante;
 
 import br.com.davi.devdojo.model.Estudante;
 
+import javax.el.LambdaExpression;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -53,6 +55,11 @@ public class EstudandeRegistroBean implements Serializable {
 
     public void esconderLink(){
         this.mostrarLink = false;
+    }
+
+    public void calcularCubo(LambdaExpression le, Long value){
+        Long result = (long) le.invoke(FacesContext.getCurrentInstance().getELContext(), value);
+        System.out.println(result);
     }
 
 

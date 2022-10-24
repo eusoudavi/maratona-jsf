@@ -72,7 +72,8 @@
         <ui:repeat value="#{estudanteRegistro.nomesList}"
                    var="numeros"
                    varStatus="status">
-            <h:outputLabel value="#{status.index} - #{numeros}" style="color: #{status.index mod 2 == 0 ? 'red' : 'blue'}"/><br/>
+            <h:outputLabel value="#{status.index} - #{numeros}"
+                           style="color: #{status.index mod 2 == 0 ? 'red' : 'blue'}"/><br/>
         </ui:repeat>
         <br/>
 
@@ -114,12 +115,42 @@
 
             </h:panelGrid>
         </h:form>
-
     </f:view>
+
+    <br/><br/><br/>
+
+    <!--    LAMBDAS     -->
+
+    #{(soma -> soma + num)(10)}
+    #{((v1, v2, v3) -> v1*v2*v3)(1, 5, 10)}
+    #{cubo=(x->x*x*x);cubo(10)}
+
+    <h:form>
+        <h:commandButton value="Calcular Cubo" actionListener="#{estudanteRegistro.calcularCubo((x->x*x*x), 10)}"/>
+    </h:form>
+
+    <!--    LISTAS     -->
+    <ui:repeat value="#{['Davi', 'Menezes', 'Visintainer']}" var="nome">
+        #{nome}
+    </ui:repeat>
+    <br/>
+    <!--    SET     -->
+    <ui:repeat value="#{{'Davi', 'Menezes', 'Visintainer', 'Davi'}}" var="nome">
+        #{nome}
+    </ui:repeat>
+    <br/>
+    <!--    MAP     -->
+    <ui:repeat value="#{{'Davi':'NOME', 'Menezes':'PRIMEIRO_SOBRENOME', 'Visintainer':'ÚLTIMO_SOBRENOME'}}" var="nome">
+        #{nome}
+        <br/><br/>
+        <ui:repeat value="#{nome.entrySet().toArray()}" var="nomeMap">
+            #{nomeMap.key} - #{nomeMap.value}<br/>
+        </ui:repeat>
+    </ui:repeat>
 
 </h:body>
 <script type="text/javascript">
-    function atencaoNome(nome){
+    function atencaoNome(nome) {
         alert(nome);
     }
 </script>
