@@ -1,5 +1,6 @@
 package br.com.davi.devdojo.bean.request;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -12,8 +13,14 @@ import static java.util.Arrays.asList;
 @Named
 @RequestScoped
 public class TesteRequestBean implements Serializable {
-    private List<String> bairros = asList("Asa Norte", "Noroeste", "Asa Sul", "Cruzeiro");
+    private List<String> bairros;
     private List<String> bairroSelecionado = new ArrayList<>();
+
+    @PostConstruct
+    public void init(){
+        System.out.println("Entrou no PostConstruct do RequestScoped");
+        bairros = asList("Asa Norte", "Noroeste", "Asa Sul", "Cruzeiro");
+    }
 
     public void escolherBairro(){
         int index = ThreadLocalRandom.current().nextInt(4);
