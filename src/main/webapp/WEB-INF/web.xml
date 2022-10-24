@@ -3,17 +3,21 @@
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+    <display-name>Archetype Created Web Application</display-name>
 
-  <welcome-file-list>
-    <welcome-file>index.xhtml</welcome-file>
-  </welcome-file-list>
+    <welcome-file-list>
+        <welcome-file>index.xhtml</welcome-file>
+    </welcome-file-list>
+    <!--  CONFIGURAÇÃO DO TEMPO QUE UMA SESSÃO PERMANECE ATIVA  -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
 
-<!--  AQUI PODEMOS PEDIR PARA NÃO PUBLICAR NO HTML OS COMENTÁRIOS FEITOS NO JSF-->
-  <context-param>
-    <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
-    <param-value>true</param-value>
-  </context-param>
+    <!--  AQUI PODEMOS PEDIR PARA NÃO PUBLICAR NO HTML OS COMENTÁRIOS FEITOS NO JSF-->
+    <context-param>
+        <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+        <param-value>true</param-value>
+    </context-param>
 
 
 </web-app>
